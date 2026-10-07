@@ -16,7 +16,11 @@
       "route": "website",
       "url": "https://northline.example",
       "guest_allowed": true,
-      "notes": "Ordinary pages. A guest may read public information. The account waits for the customer."
+      "notes": "Ordinary pages. A guest may read public information. The account waits for the customer.",
+      "pages": {
+        "returns_policy": "https://northline.example/returns",
+        "reroute_window": "https://northline.example/orders/{order_id}/reroute"
+      }
     },
     {
       "route": "api",

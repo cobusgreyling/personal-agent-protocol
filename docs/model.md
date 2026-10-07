@@ -51,6 +51,7 @@ The announcement does not name a URL, a JSON shape, a token claim, or an event f
 | `examples/routes/website.md` | Which pages a guest may use, and which wait for the account. |
 | `examples/routes/api/openapi.yaml` | The address change as one call, carrying the session. OpenAPI here is one way to show the API route Sierra described. |
 | `examples/routes/agent/warranty.md` | A conversation in the same kind of visit, with a person joining. |
+| `examples/code/` | A local Northline and a personal agent that run the visit over HTTP. |
 
 The story those files share: an order at Northline Goods, a guest question about rerouting, then a change of delivery address. The worked sequence is in [the walkthrough](walkthrough.md).
 

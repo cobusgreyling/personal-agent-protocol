@@ -48,6 +48,7 @@ The essay above is the whole argument. The rest of the repository is that argume
 
 - [Model](docs/model.md). What the announcement fixes in place, and what these files invent.
 - [Walkthrough](docs/walkthrough.md). Northline Goods, order `NL-20418`, one session.
+- [Working code](examples/code/README.md). Run that visit against a local Northline: `python3 examples/code/demo.py`.
 - [Discovery](examples/discovery/.well-known/personal-agent.json). Sign-in and the three doors, in one document.
 - [Guest session](examples/session/guest.json) and [the same visit after write access](examples/session/authorized.json).
 - [Website](examples/routes/website.md), [API](examples/routes/api/openapi.yaml), and the [company agent](examples/routes/agent/warranty.md).

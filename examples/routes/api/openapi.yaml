@@ -10,6 +10,30 @@ info:
 servers:
   - url: https://api.northline.example
 paths:
+  /orders/{order_id}:
+    get:
+      operationId: getOrder
+      summary: Read an order in this visit
+      description: |
+        Available once the customer has granted read or write access.
+        A guest does not receive the address.
+      security:
+        - customerAgent: [orders:read]
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: NL-20418
+        - name: session_id
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The order, including its delivery address.
   /orders/{order_id}/delivery-address:
     patch:
       operationId: updateDeliveryAddress

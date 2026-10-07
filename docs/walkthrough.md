@@ -4,6 +4,12 @@ One visit to a fictional shop, Northline Goods. Order `NL-20418` is open. The cu
 
 The files linked below are a reading model of the 6 October 2026 announcement. The field names are not the specification.
 
+Run the same visit locally:
+
+```bash
+python3 examples/code/demo.py
+```
+
 ## 1. Discover the business
 
 The agent fetches one document and learns where to sign in and which doors are open.

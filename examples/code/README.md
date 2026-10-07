@@ -1,6 +1,6 @@
-# Run the visit
+# The four visits
 
-A local Northline Goods and a personal agent. Python 3.11 or newer, standard library only. The agent reads the discovery document, then uses the sign-in endpoints, the page URLs, the OpenAPI operation, and the company-agent URL it finds there.
+The one-visit command is `python3 quickstart.py` from the repo root. This directory is the shop, the agent, and the longer demo. Python 3.11 or newer, standard library only. The agent reads the discovery document, then uses the sign-in endpoints, the page URLs, the OpenAPI operation, and the company-agent URL it finds there.
 
 The token step follows the shape of an OAuth authorization-code grant: the customer chooses `read` or `write` on the company's page, the agent exchanges the code, and later calls carry that token. Tokens are random strings kept in memory until the process stops.
 

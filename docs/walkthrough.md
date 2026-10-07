@@ -4,11 +4,13 @@ One visit to a fictional shop, Northline Goods. Order `NL-20418` is open. The cu
 
 The files linked below are a reading model of the 6 October 2026 announcement. The field names are not the specification.
 
-Run the same visit locally:
+Run the address change from the repo root:
 
 ```bash
-python3 examples/code/demo.py
+python3 quickstart.py
 ```
+
+`python3 examples/code/demo.py` runs that visit plus a read-only grant, a parcel that has already left, and a warranty claim.
 
 ## 1. Discover the business
 

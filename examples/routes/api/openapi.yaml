@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: Northline Goods order API
+  version: 0.0.0-illustration
+  description: |
+    A reading model of the API route described in the Personal Agent
+    Protocol announcement of 6 October 2026. Sierra says that route is
+    built on interfaces such as OpenAPI and MCP. These fields are a
+    teaching device, not the unpublished v0.1 specification.
+servers:
+  - url: https://api.northline.example
+paths:
+  /orders/{order_id}/delivery-address:
+    patch:
+      operationId: updateDeliveryAddress
+      summary: Change the delivery address on an open order
+      description: |
+        One call for the task. The session id ties the call to the
+        guest question that opened the visit and to the access the
+        customer granted.
+      security:
+        - customerAgent: [orders:write]
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: NL-20418
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddressChange"
+            example:
+              session_id: ses_7f3a
+              address:
+                line1: 18 Harbour Road
+                city: Cape Town
+                postal_code: "8001"
+                country: ZA
+      responses:
+        "200":
+          description: Address updated inside the same visit
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddressChangeResult"
+        "409":
+          description: The parcel has left the depot. Continue this session with the company agent.
+components:
+  securitySchemes:
+    customerAgent:
+      type: oauth2
+      description: |
+        Illustrative. The announcement says the session is built on
+        OAuth, and the customer decides read-only or write access.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://northline.example/oauth/authorize
+          tokenUrl: https://northline.example/oauth/token
+          scopes:
+            orders:read: Read orders in this visit.
+            orders:write: Change an order in this visit.
+  schemas:
+    AddressChange:
+      type: object
+      required: [session_id, address]
+      properties:
+        session_id:
+          type: string
+          description: The visit. It already holds the guest question from before sign-in.
+          example: ses_7f3a
+        address:
+          type: object
+          required: [line1, city, postal_code, country]
+          properties:
+            line1:
+              type: string
+            city:
+              type: string
+            postal_code:
+              type: string
+            country:
+              type: string
+    AddressChangeResult:
+      type: object
+      required: [session_id, order_id, status, route]
+      properties:
+        session_id:
+          type: string
+        order_id:
+          type: string
+        status:
+          type: string
+          example: updated
+        route:
+          type: string
+          example: api

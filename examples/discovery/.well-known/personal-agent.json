@@ -1,0 +1,33 @@
+{
+  "illustration": true,
+  "basis": "Reading model of Personal Agent Protocol as announced by Sierra on 6 October 2026. Field names are not the unpublished v0.1 specification.",
+  "business": {
+    "name": "Northline Goods",
+    "url": "https://northline.example"
+  },
+  "sign_in": {
+    "grant": "oauth",
+    "authorization_endpoint": "https://northline.example/oauth/authorize",
+    "token_endpoint": "https://northline.example/oauth/token",
+    "access_the_customer_chooses": ["read", "write"]
+  },
+  "interfaces": [
+    {
+      "route": "website",
+      "url": "https://northline.example",
+      "guest_allowed": true,
+      "notes": "Ordinary pages. A guest may read public information. The account waits for the customer."
+    },
+    {
+      "route": "api",
+      "styles": ["openapi", "mcp"],
+      "openapi": "https://api.northline.example/openapi.json",
+      "preferred_for": ["order.delivery_address.update"]
+    },
+    {
+      "route": "agent",
+      "url": "https://northline.example/agent",
+      "preferred_for": ["warranty.claim", "delivery.already_shipped"]
+    }
+  ]
+}

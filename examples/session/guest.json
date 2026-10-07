@@ -1,0 +1,18 @@
+{
+  "illustration": true,
+  "basis": "Reading model. A guest session for a public question, as described by Sierra on 6 October 2026.",
+  "session_id": "ses_7f3a",
+  "business": "Northline Goods",
+  "subject": "guest",
+  "authentication": null,
+  "access": "none",
+  "channel": "website",
+  "events": [
+    {
+      "at": "2026-10-07T09:14:00Z",
+      "type": "guest_question",
+      "intent": "Can order NL-20418 still be rerouted?",
+      "result": "Yes. The order is open. The address is not included in a guest answer."
+    }
+  ]
+}

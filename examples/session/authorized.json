@@ -1,0 +1,43 @@
+{
+  "illustration": true,
+  "basis": "Reading model. The same visit after the customer grants write access. The session is OAuth and continues across channels, as described by Sierra on 6 October 2026.",
+  "session_id": "ses_7f3a",
+  "business": "Northline Goods",
+  "subject": {
+    "customer": "cus_northline_441",
+    "personal_agent": "personal_agent_example"
+  },
+  "authentication": "oauth",
+  "access": "write",
+  "channel": "api",
+  "events": [
+    {
+      "at": "2026-10-07T09:14:00Z",
+      "type": "guest_question",
+      "channel": "website",
+      "intent": "Can order NL-20418 still be rerouted?",
+      "result": "Yes. The order is open."
+    },
+    {
+      "at": "2026-10-07T09:15:10Z",
+      "type": "customer_granted_access",
+      "access": "write",
+      "via": "sign_in_on_company_page"
+    },
+    {
+      "at": "2026-10-07T09:15:22Z",
+      "type": "route_selected",
+      "by": "business",
+      "route": "api",
+      "reason": "The order is still open. Northline serves this task on the API."
+    },
+    {
+      "at": "2026-10-07T09:15:23Z",
+      "type": "task_completed",
+      "channel": "api",
+      "operation": "updateDeliveryAddress",
+      "order_id": "NL-20418",
+      "result": "Delivery address updated."
+    }
+  ]
+}
